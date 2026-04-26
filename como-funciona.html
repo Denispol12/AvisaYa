@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#f7f4ef"/>
+  <title>¿Cómo funciona? — AvisaYa</title>
+  <meta name="description" content="Descubre en 4 pasos cómo publicar tu aviso de trabajo en AvisaYa — gratis, sin registro y con candidatos directo por WhatsApp en Huánuco."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="¿Cómo funciona? — AvisaYa"/>
+  <meta property="og:description" content="Publica tu aviso en 3 pasos y recibe candidatos por WhatsApp."/>
+  <meta property="og:locale" content="es_PE"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:         #141210;
+      --ink-80:      rgba(20,18,16,0.80);
+      --ink-60:      rgba(20,18,16,0.60);
+      --ink-40:      rgba(20,18,16,0.40);
+      --surface:     #f7f4ef;
+      --surface-2:   #efe9df;
+      --surface-3:   #e4dcd0;
+      --green:       #1a9e6e;
+      --green-light: #e8f5f0;
+      --green-mid:   #b8e2d3;
+      --green-dark:  #0f6045;
+      --white:       #ffffff;
+      --card-bg:     #ffffff;
+      --card-border: rgba(20,18,16,0.09);
+      --focus-ring:  0 0 0 3px rgba(26,158,110,0.45);
+      --ease:        cubic-bezier(.2,.8,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+    body { background: var(--surface); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    :focus-visible { outline: none; }
+    a:focus-visible, button:focus-visible { box-shadow: var(--focus-ring); border-radius: 10px; }
+    .nav-cta:focus-visible, .btn-light:focus-visible { border-radius: 50px; box-shadow: var(--focus-ring); }
+
+    .skip-link {
+      position: absolute; left: 16px; top: -60px; z-index: 200;
+      background: var(--ink); color: var(--white);
+      padding: 10px 18px; border-radius: 10px;
+      font-size: 14px; text-decoration: none;
+      transition: top .2s var(--ease);
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* NAV */
+    header { position: sticky; top: 0; z-index: 100; background: rgba(247,244,239,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--surface-3); padding-top: env(safe-area-inset-top, 0); }
+    nav { max-width: 1120px; margin: 0 auto; padding: 0 20px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    @media (min-width: 640px) { nav { padding: 0 32px; } }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .logo-mark { width: 38px; height: 38px; background: var(--ink); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -.3px; }
+    .logo-text span { color: var(--green); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--ink-80); text-decoration: none; font-size: 14px; font-weight: 400; transition: color .2s var(--ease); padding: 8px 2px; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--green-dark); font-weight: 500; }
+    .nav-cta { background: var(--green) !important; color: var(--white) !important; font-weight: 500 !important; padding: 10px 20px !important; border-radius: 50px; transition: background .2s var(--ease), transform .2s var(--ease) !important; min-height: 40px; display: inline-flex; align-items: center; }
+    .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      max-width: 1120px; margin: 0 auto;
+      padding: 64px 20px 48px;
+      border-bottom: 1px solid var(--surface-3);
+    }
+    @media (min-width: 640px) { .page-header { padding: 72px 32px 56px; } }
+
+    .eyebrow { font-size: 11px; font-weight: 500; color: var(--green); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+    .page-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(30px, 5vw, 54px); font-weight: 800; letter-spacing: -1.8px; line-height: 1.08; margin-bottom: 16px; max-width: 620px; text-wrap: balance; }
+    .page-sub { font-size: 16px; color: var(--ink-80); font-weight: 300; max-width: 500px; line-height: 1.75; text-wrap: pretty; }
+
+    /* CONTENT */
+    .content { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 56px 20px 88px; }
+    @media (min-width: 640px) { .content { padding: 64px 32px 96px; } }
+
+    /* Steps timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .tl-item {
+      display: grid; grid-template-columns: 56px 1fr; gap: 0 20px;
+      padding-bottom: 40px; position: relative;
+    }
+    @media (min-width: 640px) { .tl-item { grid-template-columns: 64px 1fr; gap: 0 28px; padding-bottom: 48px; } }
+    .tl-item:last-child { padding-bottom: 0; }
+
+    .tl-left { display: flex; flex-direction: column; align-items: center; }
+
+    .tl-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--green-light); border: 2px solid var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; z-index: 1;
+    }
+    @media (min-width: 640px) { .tl-circle { width: 48px; height: 48px; } }
+
+    .tl-line { flex: 1; width: 2px; background: var(--surface-3); margin-top: 6px; }
+    .tl-item:last-child .tl-line { display: none; }
+
+    .tl-right { padding-top: 8px; }
+
+    .tl-label { font-size: 11px; font-weight: 500; color: var(--green); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .tl-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--ink); text-wrap: balance; }
+    @media (min-width: 640px) { .tl-title { font-size: 20px; } }
+    .tl-desc { font-size: 14.5px; color: var(--ink-80); font-weight: 300; line-height: 1.72; max-width: 540px; text-wrap: pretty; }
+    @media (min-width: 640px) { .tl-desc { font-size: 15px; } }
+
+    /* Beta notice */
+    .beta-notice {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-left: 3px solid var(--green);
+      border-radius: 16px; padding: 20px 22px;
+      margin-top: 48px; display: flex; gap: 14px; align-items: flex-start;
+    }
+    @media (min-width: 640px) { .beta-notice { padding: 24px 28px; margin-top: 56px; gap: 16px; } }
+
+    .beta-notice-icon { width: 40px; height: 40px; background: var(--green-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .beta-notice-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .beta-notice-text { font-size: 14px; color: var(--ink-80); font-weight: 300; line-height: 1.7; }
+
+    /* FAQ */
+    .faq { margin-top: 56px; }
+    @media (min-width: 640px) { .faq { margin-top: 64px; } }
+
+    .faq-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; transition: border-color .2s var(--ease); }
+    .faq-item:has(.faq-q[aria-expanded="true"]) { border-color: var(--green-mid); }
+
+    .faq-q {
+      width: 100%; background: transparent; border: none;
+      padding: 18px 20px; font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 500; color: var(--ink);
+      cursor: pointer; text-align: left;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      min-height: 56px;
+      transition: background .2s var(--ease);
+    }
+    .faq-q:hover { background: var(--surface); }
+    .faq-q:focus-visible { outline: none; box-shadow: inset var(--focus-ring); border-radius: 0; }
+
+    .faq-icon { flex-shrink: 0; color: var(--ink-40); transition: transform .3s var(--ease); }
+    .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); color: var(--green); }
+
+    .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height .35s var(--ease), padding .35s var(--ease); font-size: 14px; color: var(--ink-80); font-weight: 300; line-height: 1.75; }
+    .faq-q[aria-expanded="true"] + .faq-a { max-height: 400px; padding: 0 20px 18px; }
+
+    /* CTA strip */
+    .cta-strip {
+      margin-top: 56px; background: var(--ink); border-radius: 20px;
+      padding: 32px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    @media (min-width: 640px) { .cta-strip { margin-top: 64px; padding: 40px; gap: 24px; } }
+
+    .cta-strip::before {
+      content: ''; position: absolute; top: -50px; right: -50px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(26,158,110,0.25), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-strip-text { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); line-height: 1.3; position: relative; text-wrap: balance; }
+    @media (min-width: 640px) { .cta-strip-text { font-size: 22px; } }
+    .cta-strip-text span { color: var(--green); }
+    .btn-light {
+      background: var(--white); color: var(--ink);
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+      letter-spacing: .4px; padding: 13px 26px; border-radius: 50px; border: none;
+      cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      min-height: 46px; flex-shrink: 0; position: relative;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-light:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
+
+    /* FOOTER */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--surface-3); padding-bottom: env(safe-area-inset-bottom, 0); }
+    .footer-inner { max-width: 1120px; margin: 0 auto; padding: 28px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    @media (min-width: 640px) { .footer-inner { padding: 32px; } }
+    .footer-brand { font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink-60); }
+    .footer-brand span { color: var(--green); }
+    .footer-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--ink-60); text-decoration: none; font-size: 13px; transition: color .2s var(--ease); }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-size: 12px; color: var(--ink-40); }
+
+    @media (max-width: 640px) {
+      .nav-links > li:not(:last-child) { display: none; }
+      .nav-cta { padding: 9px 16px !important; font-size: 13px !important; }
+      .cta-strip { flex-direction: column; align-items: stretch; }
+      .cta-strip .btn-light { justify-content: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header>
+    <nav aria-label="Navegación principal">
+      <a href="index.html" class="logo" aria-label="AvisaYa — inicio">
+        <div class="logo-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3 14.5L7.5 9.5L11 12.5L15.5 6.5" stroke="#1a9e6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="15.5" cy="6.5" r="2" fill="#1a9e6e"/>
+          </svg>
+        </div>
+        <span class="logo-text">Avisa<span>Ya</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="como-funciona.html" class="active">¿Cómo funciona?</a></li>
+        <li><a href="para-quien.html">Para quién</a></li>
+        <li><a href="https://bit.ly/avisosya" class="nav-cta">Publicar aviso</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <div class="page-header">
+      <p class="eyebrow">Proceso</p>
+      <h1 class="page-title">¿Cómo funciona AvisaYa?</h1>
+      <p class="page-sub">Tres pasos simples para que tu aviso llegue a la gente correcta de Huánuco.</p>
+    </div>
+
+    <div class="content">
+
+      <!-- Timeline de pasos -->
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-circle">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <rect x="2" y="2" width="8" height="8" rx="2" stroke="#1a9e6e" stroke-width="1.5"/>
+                <rect x="12" y="2" width="8" height="8" rx="2" stroke="#1a9e6e" stroke-width="1.5"/>
+                <rect x="2" y="12" width="8" height="8" rx="2" stroke="#1a9e6e" stroke-width="1.5"/>
+                <rect x="12" y="12" width="8" height="8" rx="2" stroke="#1a9e6e" stroke-width="1.5" stroke-dasharray="2 2"/>
+              </svg>
+            </div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-right">
+            <p class="tl-label">Paso 01</p>
+            <h2 class="tl-title">Das clic en "Publicar aviso gratis"</h2>
+            <p class="tl-desc">Serás llevado a un formulario sencillo donde nos cuentas sobre el puesto que necesitas cubrir. No hace falta crear una cuenta ni instalar nada.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-circle">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M14.5 3.5l4 4L7 19H3v-4L14.5 3.5z" stroke="#1a9e6e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 6l4 4" stroke="#1a9e6e" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-right">
+            <p class="tl-label">Paso 02</p>
+            <h2 class="tl-title">Llenas el formulario en 2 minutos</h2>
+            <p class="tl-desc">Nos dices el tipo de trabajo, el horario, el pago y tu número de WhatsApp. Eso es todo lo que necesitamos para armar tu aviso.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-circle">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M4 4h14a1 1 0 011 1v8a1 1 0 01-1 1H7l-4 4V5a1 1 0 011-1z" stroke="#1a9e6e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-right">
+            <p class="tl-label">Paso 03</p>
+            <h2 class="tl-title">Publicamos el aviso por ti</h2>
+            <p class="tl-desc">El equipo de AvisaYa publica tu aviso en los grupos y redes de Huánuco. Estamos en fase beta, así que nos encargamos nosotros de la difusión.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-circle">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M19 11c0 4.418-3.582 8-8 8a7.96 7.96 0 01-4.2-1.2L3 19l1.2-3.8A7.96 7.96 0 013 11c0-4.418 3.582-8 8-8s8 3.582 8 8z" stroke="#1a9e6e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 11h.01M11 11h.01M14 11h.01" stroke="#1a9e6e" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-right">
+            <p class="tl-label">Paso 04</p>
+            <h2 class="tl-title">Los candidatos te escriben directo</h2>
+            <p class="tl-desc">Los interesados de tu zona te contactan por WhatsApp. Tú conversas con ellos, decides y contratas. Sin intermediarios.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Aviso beta -->
+      <div class="beta-notice">
+        <div class="beta-notice-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="8" stroke="#1a9e6e" stroke-width="1.5"/>
+            <path d="M10 9v5" stroke="#1a9e6e" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="10" cy="6.5" r="0.75" fill="#1a9e6e"/>
+          </svg>
+        </div>
+        <div>
+          <p class="beta-notice-title">Estamos en fase beta</p>
+          <p class="beta-notice-text">AvisaYa está en validación. Por ahora, cuando llenes el formulario, nuestro equipo se encarga de publicar tu aviso manualmente. Muy pronto tendrás acceso directo a la plataforma.</p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 class="faq-title" id="faq-title">Preguntas frecuentes</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+              <span>¿Cuánto cuesta publicar un aviso?</span>
+              <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">Durante el lanzamiento es completamente gratis. No necesitas tarjeta de crédito ni registrarte.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+              <span>¿Cuánto tiempo tarda en publicarse mi aviso?</span>
+              <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2">Normalmente lo publicamos el mismo día. En horario de oficina, en menos de 2 horas.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+              <span>¿Dónde se publica el aviso?</span>
+              <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">En grupos de WhatsApp, Facebook y otras redes locales de Huánuco con alta actividad de búsqueda de empleo.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+              <span>¿Qué tipos de trabajo puedo publicar?</span>
+              <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">Cualquiera: mesero, cajero, vigilante, delivery, limpieza, cocina, recepcionista, personal de almacén, cachuelos por días y más.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CTA strip -->
+      <div class="cta-strip">
+        <p class="cta-strip-text">¿Todo claro? <span>Publica tu aviso ahora.</span></p>
+        <a href="https://bit.ly/avisosya" class="btn-light">
+          Publicar aviso gratis
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand">Avisa<span>Ya</span></p>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="como-funciona.html">¿Cómo funciona?</a></li>
+        <li><a href="para-quien.html">Para quién</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 AvisaYa · Huánuco, Perú · Proyecto en validación</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.faq-q');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
